@@ -12,4 +12,11 @@
     <select id="getTeacherbyInfo" resultType="com.entity.Teacher">
          SELECT * FROM  standard_seminar_system.teacher where account=#{info} or teacher_name=#{info};
     </select>
+    <insert id="createTeacher" >
+        insert into standard_seminar_system.teacher(account,teacher_name,password,email,is_active) values(#{0},#{1},#{2},#{3},0);
+    </insert>
+    <delete id="deleteAteacher" parameterType="String" >
+        delete from  standard_seminar_system.teacher where account = #{account};
+    </delete>
+
 </mapper>

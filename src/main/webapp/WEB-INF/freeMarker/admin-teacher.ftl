@@ -12,9 +12,46 @@
             if (confirm('您确定要重置该账号吗？'))
                 window.location.href('');
         }
-        function myDelete() {
-            if (confirm('您确定要删除该账号吗？'))
-                window.location.href('');
+        function checkAll() {
+            var all = document.getElementById('del'); //获取到点击全选的那个复选框的id
+            var one = document.getElementsByName('check'); //获取到复选框的名称
+            if (all.checked == true) { //因为获得的是数组，所以要循环 为每一个checked赋值
+                for (var i = 0; i < one.length; i++) {
+                    one[i].checked = true;
+                }
+
+            } else {
+                for (var j = 0; j < one.length; j++) {
+                    one[j].checked = false;
+                }
+            }
+        }
+
+        function checkdel() {
+
+            var obj = document.getElementsByName("check");
+            var check_val = "";
+            var flag=false;
+            for(var i = 0; i < obj.length; i++){
+                if(obj[i].checked){
+                    flag=true;
+                    check_val+=obj[i].value+",";
+                }
+            }
+            if (!flag) {
+                alert("Please Choose Records To Delete ！");
+                return false;
+            } else {
+                if (confirm("Are you Sure To Delete？")) {
+                    window.location.href = "/delete-teacher?admin_account=${admin.getAccount()}&delid=" + check_val;
+                }
+            }
+        }
+
+        function confirmdel(numstring) {
+            if (confirm("Are you Sure To Delete？")) {
+                window.location.href = "/delete-a-teacher?admin_account=${admin.getAccount()}&delid=" + numstring;
+            }
         }
     </script>
 </head>
@@ -58,7 +95,7 @@
                     <ul class="tpl-left-nav-sub-menu" style="display:block">
                         <li>
                             <!-- 打开状态 a 标签添加 active 即可   -->
-                            <a href="/index" class="active">
+                            <a href="/admin-teacher?admin_account=${admin.getAccount()}" class="active">
                                 <i class="am-icon-angle-right"></i>
                                 <span>管理教师信息</span>
                             </a>
@@ -97,8 +134,8 @@
                     <div class="am-u-sm-12 am-u-md-6">
                         <div class="am-btn-toolbar">
                             <div class="am-btn-group am-btn-group-xs">
-                                <a type="button" class="am-btn am-btn-default am-btn-success" href="/create-teacher"><span class="am-icon-plus"></span> 新增</a>
-                                <button type="button" class="am-btn am-btn-default am-btn-danger" onclick="myDelete()"><span class="am-icon-trash-o"></span> 删除</button>
+                                <a type="button" class="am-btn am-btn-default am-btn-success" href="/create-teacher?admin_account=${admin.getAccount()}"><span class="am-icon-plus"></span> 新增</a>
+                                <button type="button" class="am-btn am-btn-default am-btn-danger" onclick="checkdel()"><span class="am-icon-trash-o" ></span> 删除</button>
                             </div>
                         </div>
                     </div>
@@ -109,7 +146,7 @@
                             <table class="am-table am-table-striped am-table-hover table-main">
                                 <thead>
                                 <tr>
-                                    <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
+                                    <th class="table-check"><input id="del" type="checkbox" class="tpl-table-fz-check" onclick="checkAll()"></th>
                                     <th class="table-title" >教工号</th>
                                     <th class="table-author am-hide-sm-only">姓名</th>
                                     <th class="table-date am-hide-sm-only">电子邮箱</th>
@@ -120,7 +157,7 @@
                                <#if teacherList?exists>
                                       <#list teacherList as item>
                                     <tr>
-                                        <td class="table-check"><input type="checkbox" class="tpl-table-fz-check"></td>
+                                        <td class="table-check"><input type="checkbox" class="tpl-table-fz-check" name="check" value="${item.getAccount()}"></td>
                                         <td class="table-title" >${item.getAccount()?if_exists}</td>
                                         <td class="table-author am-hide-sm-only"><a href="#">${item.getTeacher_name()?if_exists}</a></td>
                                         <td class="table-date am-hide-sm-only">${item.getEmail()?if_exists}</td>
@@ -129,7 +166,7 @@
                                                 <div class="am-btn-group am-btn-group-xs">
                                                     <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"><a href="/modify-teacher">编辑</a></button>
                                                     <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only" type="button" onclick="myReset()"> 重置</button>
-                                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" type="button" onclick="myDelete()"> 删除</button>
+                                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" type="button" onclick="confirmdel(${item.getAccount()?if_exists})"> 删除</button>
                                                 </div>
                                             </div>
                                         </td>

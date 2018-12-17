@@ -11,7 +11,7 @@ import java.util.List;
 public class TeacherServiceImpl implements TeacherService {
     @Autowired
     TeacherDao teacherDao;
-    public Teacher getTeacherbyAccount(int account, String password) {
+    public Teacher getTeacherbyAccount(String account, String password) {
         return teacherDao.getTeacherbyAccount(account,password);
     }
     @Override
@@ -23,4 +23,16 @@ public class TeacherServiceImpl implements TeacherService {
     public List<Teacher> getTeacherbyInfo(String info) {
         return teacherDao.getTeacherbyInfo(info);
     }
+
+    @Override
+    public void createTeacher(String user_account,String user_name,String user_password,String user_email)
+    { teacherDao.createTeacher(user_account,user_name,user_password,user_email);}
+
+    @Override
+    public void deleteAteacher(String account){ teacherDao.deleteAteacher(account);}
+
+    @Override
+    public void deleteTeacherByAccount(String[] obj){
+        for(int i=0;i<obj.length;i++)
+            teacherDao.deleteAteacher(obj[i]);}
 }

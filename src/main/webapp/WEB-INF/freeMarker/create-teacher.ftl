@@ -31,7 +31,7 @@
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick">用户名</span>
+                    <span class="tpl-header-list-user-nick">${admin.getAccount()}</span>
                 </a>
                 <ul class="am-dropdown-content" id="topbat-content">
                     <li><a href="../../index.html"><span class="am-icon-power-off"></span> 退出</a></li>
@@ -61,11 +61,11 @@
                     <ul class="tpl-left-nav-sub-menu" style="display:block">
                         <li>
                             <!-- 打开状态 a 标签添加 active 即可   -->
-                            <a href="/index" class="active">
+                            <a href="/admin-teacher?admin_account=${admin.getAccount()}" class="active">
                                 <i class="am-icon-angle-right"></i>
                                 <span>管理教师信息</span>
                             </a>
-                            <a href="/admin-student">
+                            <a href="/admin-student?admin_account=${admin.getAccount()}">
                                 <i class="am-icon-angle-right"></i>
                                 <span>管理学生信息</span>
                             </a>
@@ -90,24 +90,31 @@
 
 
                     <div class="am-u-sm-12 am-u-md-9">
-                        <form class="am-form am-form-horizontal">
+                        <form class="am-form am-form-horizontal" action="/create-a-teacher" method="post" >
                             <div class="am-form-group">
-                                <label for="user-name" class="am-u-sm-3 am-form-label">教工号 / ID</label>
+                                <input value="${admin.getAccount()}" name="admin_account" hidden="hidden">
+                                <label for="user-account" class="am-u-sm-3 am-form-label">教工号 / ID</label>
                                 <div class="am-u-sm-9">
-                                    <input type="text" id="user-name" placeholder="教工号">
+                                    <input type="text" id="user-account" placeholder="教工号" name="user_account">
                                 </div>
                             </div>
                             <div class="am-form-group">
                                 <label for="user-name" class="am-u-sm-3 am-form-label">姓名 / Name</label>
                                 <div class="am-u-sm-9">
-                                    <input type="text" id="user-name" placeholder="教师姓名">
+                                    <input type="text" id="user-name" placeholder="教师姓名" name="user_name">
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label for="user-password" class="am-u-sm-3 am-form-label">密码 / Password</label>
+                                <div class="am-u-sm-9">
+                                    <input type="password" id="user-password" placeholder="教师密码" name="user_password">
                                 </div>
                             </div>
 
                             <div class="am-form-group">
                                 <label for="user-email" class="am-u-sm-3 am-form-label">电子邮件 / Email</label>
                                 <div class="am-u-sm-9">
-                                    <input type="email" id="user-email" placeholder="电子邮件">
+                                    <input type="email" id="user-email" placeholder="电子邮件" name="user_email">
                                 </div>
                             </div>
                             <div class="am-form-group">
@@ -116,21 +123,43 @@
                             </div>
                             <div class="am-form-group">
                                 <div class="am-u-sm-9 am-u-sm-push-3">
-                                    <a href="admin-teacher.html"><button type="button" class="am-btn am-btn-primary">确认</button></a>
-                                    <a href="admin-teacher.html"><button type="button" class="am-btn am-btn-primary">取消</button></a>
+                                    <button type="submit" class="am-btn am-btn-primary" onclick="test()" >确认</button>
+                                    <a href="/admin-teacher?admin_account=${admin.getAccount()}">
+                                        <button type="button" class="am-btn am-btn-primary">取消</button></a>
                                 </div>
                             </div>
                         </form>
+                        <script>
+                            function test() {
+                                var account = document.getElementById('user-account');
+                                var name = document.getElementById('user-name');
+                                var password = document.getElementById('user-password');
+                                var email = document.getElementById('user-email');
+                                if (account.value == '') {
+                                    alert("account wrong");
+                                }
+                                if (name.value == '') {
+                                    alert("name wrong");
+                                }
+                                if (password.value == '') {
+                                    alert("password wrong");
+                                }
+                                if (email.value == '') {
+                                    alert("email wrong");
+                                }
+                            }
+                        </script>
+
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-    <div id="alert" class="myAlert">
+  <!--  <div id="alert" class="myAlert">
         <p class="text1" style="margin-top: 10%;">您已成功创建一个账号!</p>
         <button class="button button-action button-square" style="margin-left: 60%;margin-top: 25%;width:10rem;border-radius: 1rem;" onclick="myClose()">关闭</button>
-    </div>
+    </div> -->
 </div>
 
 <script src="assets/js/jquery.min.js"></script>

@@ -11,11 +11,24 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService {
     @Autowired
     StudentDao studentDao;
-    public Student getStudentbyAccount(int account, String password) {
+    public Student getStudentbyAccount(String account, String password) {
         return studentDao.getStudentbyAccount(account,password);
     }
 
     public List<Student> getAllStudent(){
         return studentDao.getAllStudent();
     }
+
+    @Override
+    public List<Student> getStudentbyInfo(String info) {
+        return studentDao.getStudentbyInfo(info);
+    }
+
+    @Override
+    public void deleteAstudent(String account){ studentDao.deleteAstudent(account);}
+
+    @Override
+    public void deleteStudentByAccount(String[] obj){
+        for(int i=0;i<obj.length;i++)
+            studentDao.deleteAstudent(obj[i]);}
 }

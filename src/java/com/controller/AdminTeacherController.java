@@ -29,12 +29,11 @@ public class AdminTeacherController {
 
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public String login(Model model, @RequestParam String user_account, @RequestParam String password, HttpServletResponse response) throws IOException {
-        int account = Integer.parseInt(user_account);
         response.setContentType("text/html;charset=gb2312");
         PrintWriter out = response.getWriter();
-        Admin admin = adminService.getAdminbyAccount(account,password);
-        Teacher teacher = teacherService.getTeacherbyAccount(account,password);
-        Student student = studentService.getStudentbyAccount(account,password);
+        Admin admin = adminService.getAdminbyAccount(user_account,password);
+        Teacher teacher = teacherService.getTeacherbyAccount(user_account,password);
+        Student student = studentService.getStudentbyAccount(user_account,password);
         List<Teacher> teacherList =teacherService.getAllTeacher();
         if (admin!=null) {//跳转至管理员管理教师信息的界面
             model.addAttribute(admin);
@@ -61,4 +60,63 @@ public class AdminTeacherController {
         model.addAttribute(teacherList);
         return "admin-teacher";
     }
+
+    @RequestMapping(value = "/admin-teacher")
+    public String adminteacher(Model model, @RequestParam String admin_account) {
+        List<Teacher>  teacherList = teacherService.getAllTeacher();
+        Admin admin=new Admin();
+        admin.setAccount(admin_account);
+        model.addAttribute(admin);
+        model.addAttribute(teacherList);
+        return "admin-teacher";
+    }
+
+    @RequestMapping(value = "/create-teacher")
+    public String createteacher(Model model, @RequestParam String admin_account) {
+        Admin admin=new Admin();
+        admin.setAccount(admin_account);
+        model.addAttribute(admin);
+        return "create-teacher";
+    }
+
+    @RequestMapping(value = "/create-a-teacher",method = RequestMethod.POST)
+    public String createAteacher(Model model, @RequestParam String admin_account,@RequestParam String user_account,@RequestParam String user_name,@RequestParam String user_password,@RequestParam String user_email) {
+        Admin admin=new Admin();
+        admin.setAccount(admin_account);
+        teacherService.createTeacher(user_account,user_name,user_password,user_email);
+        List<Teacher>  teacherList = teacherService.getAllTeacher();
+        model.addAttribute(admin);
+        model.addAttribute(teacherList);
+        return "admin-teacher";
+    }
+
+    @RequestMapping(value = "/delete-teacher")
+    public String deleteteacher(Model model, @RequestParam String admin_account,String delid) {
+        Admin admin=new Admin();
+        admin.setAccount(admin_account);
+        String number="";
+        if(delid!=null)
+            number=delid.substring(0,delid.length()-1);
+        String[] obj = number.split(",");
+        teacherService.deleteTeacherByAccount(obj);
+        List<Teacher>  teacherList = teacherService.getAllTeacher();
+        System.out.print(teacherList);
+        model.addAttribute(admin);
+        model.addAttribute(teacherList);
+        return "admin-teacher";
+    }
+
+
+    @RequestMapping(value = "/delete-a-teacher")
+    public String deleteAteacher(Model model, @RequestParam String admin_account,String delid) {
+        Admin admin=new Admin();
+        admin.setAccount(admin_account);
+        teacherService.deleteAteacher(delid);
+        List<Teacher>  teacherList = teacherService.getAllTeacher();
+        model.addAttribute(admin);
+        model.addAttribute(teacherList);
+        return "admin-teacher";
+    }
+
+
 }
