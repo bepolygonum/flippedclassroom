@@ -62,7 +62,7 @@
                                 <i class="am-icon-angle-right"></i>
                                 <span>管理教师信息</span>
                             </a>
-                            <a href="/admin-student">
+                            <a href="/admin-student?admin_account=${admin.getAccount()}">
                                 <i class="am-icon-angle-right"></i>
                                 <span>管理学生信息</span>
                             </a>
