@@ -15,4 +15,12 @@
     <delete id="deleteAstudent" parameterType="String" >
         delete from  standard_seminar_system.student where account = #{account};
     </delete>
+    <update id="resetStudent">
+        update standard_seminar_system.student set password='123456'
+        where account=#{account}
+    </update>
+    <update id="modifyStudent">
+        update standard_seminar_system.student set account=#{1},student_name=#{2},email=#{3}
+        where id=#{0}
+    </update>
 </mapper>

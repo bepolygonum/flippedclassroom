@@ -91,7 +91,7 @@ public class AdminTeacherController {
     }
 
     @RequestMapping(value = "/delete-teacher")
-    public String deleteteacher(Model model, @RequestParam String admin_account,String delid) {
+    public String deleteteacher(Model model, @RequestParam String admin_account,@RequestParam String delid) {
         Admin admin=new Admin();
         admin.setAccount(admin_account);
         String number="";
@@ -108,7 +108,7 @@ public class AdminTeacherController {
 
 
     @RequestMapping(value = "/delete-a-teacher")
-    public String deleteAteacher(Model model, @RequestParam String admin_account,String delid) {
+    public String deleteAteacher(Model model, @RequestParam String admin_account,@RequestParam String delid) {
         Admin admin=new Admin();
         admin.setAccount(admin_account);
         teacherService.deleteAteacher(delid);
@@ -117,6 +117,45 @@ public class AdminTeacherController {
         model.addAttribute(teacherList);
         return "admin-teacher";
     }
+
+    @RequestMapping(value = "/modify-teacher")
+    public String modifyTeacher(Model model, @RequestParam String admin_account,@RequestParam String tid,@RequestParam String account,@RequestParam String name,@RequestParam String email) {
+        Admin admin=new Admin();
+        Teacher teacher=new Teacher();
+        admin.setAccount(admin_account);
+        teacher.setAccount(account);
+        teacher.setTeacher_name(name);
+        teacher.setEmail(email);
+        model.addAttribute(admin);
+        model.addAttribute("tid",tid);
+        model.addAttribute(teacher);
+        return "ModifyTeacher";
+    }
+
+    @RequestMapping(value = "/modify-a-teacher",method = RequestMethod.POST)
+    public String modifyAteacher(Model model, @RequestParam String admin_account,@RequestParam String tid,@RequestParam String user_account,@RequestParam String user_name,@RequestParam String user_email) {
+        Admin admin=new Admin();
+        admin.setAccount(admin_account);
+        int uid=Integer.parseInt(tid);
+        teacherService.modifyTeacher(uid,user_account,user_name,user_email);
+        List<Teacher>  teacherList = teacherService.getAllTeacher();
+        model.addAttribute(admin);
+        model.addAttribute(teacherList);
+        return "admin-teacher";
+    }
+
+    @RequestMapping(value = "/reset-teacher")
+    public String modifyAteacher(Model model, @RequestParam String admin_account,@RequestParam String account) {
+        Admin admin=new Admin();
+        admin.setAccount(admin_account);
+        teacherService.resetTeacher(account);
+        List<Teacher>  teacherList = teacherService.getAllTeacher();
+        model.addAttribute(admin);
+        model.addAttribute(teacherList);
+        return "admin-teacher";
+    }
+
+
 
 
 }

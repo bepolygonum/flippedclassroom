@@ -20,6 +20,7 @@
                 <prop key="datetime_format">yyyy-MM-dd</prop><!-- 时间格式化 -->
                 <prop key="date_format">yyyy-MM-dd</prop>
                 <prop key="number_format">#.##</prop>
+                <!--<prop key="classic_compatible">true</prop> 防空 -->
             </props>
         </property>
     </bean>

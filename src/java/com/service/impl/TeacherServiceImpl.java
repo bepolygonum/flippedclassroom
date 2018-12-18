@@ -29,10 +29,21 @@ public class TeacherServiceImpl implements TeacherService {
     { teacherDao.createTeacher(user_account,user_name,user_password,user_email);}
 
     @Override
+    public void modifyTeacher(int uid,String user_account,String user_name,String user_email)
+    { teacherDao.modifyTeacher(uid,user_account,user_name,user_email);}
+
+    @Override
     public void deleteAteacher(String account){ teacherDao.deleteAteacher(account);}
 
     @Override
     public void deleteTeacherByAccount(String[] obj){
         for(int i=0;i<obj.length;i++)
-            teacherDao.deleteAteacher(obj[i]);}
+            teacherDao.deleteAteacher(obj[i]);
+    }
+
+    @Override
+    public void resetTeacher(String account)
+    { teacherDao.resetTeacher(account); }
+
+
 }

@@ -10,15 +10,12 @@
     <link rel="stylesheet" href="assets/css/admin.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <script>
-        function myReset() {
-            if (confirm('您确定要重置该账号吗？'))
-                window.location.href('');
+        function myReset(account) {
+            if (confirm('您确定要重置该账号的密码吗？'))
+                window.location.href="/reset-student?admin_account=${admin.getAccount()}&account="+account;
         }
 
-        function myDelete() {
-            if (confirm('您确定要删除该账号吗？'))
-                window.location.href('');
-        }
+
         function checkAll() {
             var all = document.getElementById('del'); //获取到点击全选的那个复选框的id
             var one = document.getElementsByName('check'); //获取到复选框的名称
@@ -82,7 +79,7 @@
                     <span class="tpl-header-list-user-nick">${admin.getAccount()}</span>
                 </a>
                 <ul class="am-dropdown-content" id="topbat-content">
-                    <li><a href="login.html"><span class="am-icon-power-off"></span> 退出</a></li>
+                    <li><a href="../../index.html"><span class="am-icon-power-off"></span> 退出</a></li>
                 </ul>
 
             </li>
@@ -176,9 +173,9 @@
                                         <td>
                                             <div class="am-btn-toolbar">
                                                 <div class="am-btn-group am-btn-group-xs">
-                                                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"><a href="ModifyTeacher.html">编辑</a></button>
-                                                    <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only" type="button" onclick="myReset()"> 重置</button>
-                                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" type="button" onclick="confirmdel(${item.getAccount()?if_exists})""> 删除</button>
+                                                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"><a href="/modify-student?admin_account=${admin.getAccount()}&tid=${item.getId()}&account=${item.getAccount()}&name=${item.getStudent_name()}&email=${item.getEmail()}">编辑</a></button>
+                                                    <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only" type="button" onclick="myReset('${item.getAccount()}')"> 重置</button>
+                                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" type="button" onclick="confirmdel('${item.getAccount()?if_exists}')"> 删除</button>
                                                 </div>
                                             </div>
                                         </td>

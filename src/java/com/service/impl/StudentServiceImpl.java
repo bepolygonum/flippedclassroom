@@ -30,5 +30,14 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void deleteStudentByAccount(String[] obj){
         for(int i=0;i<obj.length;i++)
-            studentDao.deleteAstudent(obj[i]);}
+            studentDao.deleteAstudent(obj[i]);
+    }
+    @Override
+    public void resetStudent(String account)
+    { studentDao.resetStudent(account); }
+
+    @Override
+    public void modifyStudent(int uid,String user_account,String user_name,String user_email)
+    { studentDao.modifyStudent(uid,user_account,user_name,user_email);}
+
 }

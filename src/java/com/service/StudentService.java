@@ -9,4 +9,6 @@ public interface StudentService {
     List<Student> getStudentbyInfo(String info);
     void deleteAstudent(String account);
     void deleteStudentByAccount(String[] obj);
+    void resetStudent(String account);
+    void modifyStudent(int uid,String user_account,String user_name,String user_email);
 }

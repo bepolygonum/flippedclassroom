@@ -63,4 +63,41 @@ public class AdminStudentController{
         model.addAttribute(studentList);
         return "admin-student";
     }
+
+    @RequestMapping(value = "/modify-student")
+    public String modifyTeacher(Model model, @RequestParam String admin_account,@RequestParam String tid,@RequestParam String account,@RequestParam String name,@RequestParam String email) {
+        Admin admin=new Admin();
+        Student student=new Student();
+        admin.setAccount(admin_account);
+        student.setAccount(account);
+        student.setStudent_name(name);
+        student.setEmail(email);
+        model.addAttribute(admin);
+        model.addAttribute("tid",tid);
+        model.addAttribute(student);
+        return "ModifyStudent";
+    }
+
+    @RequestMapping(value = "/modify-a-student",method = RequestMethod.POST)
+    public String modifyAteacher(Model model, @RequestParam String admin_account,@RequestParam String tid,@RequestParam String user_account,@RequestParam String user_name,@RequestParam String user_email) {
+        Admin admin=new Admin();
+        admin.setAccount(admin_account);
+        int uid=Integer.parseInt(tid);
+        studentService.modifyStudent(uid,user_account,user_name,user_email);
+        List<Student>  studentList = studentService.getAllStudent();
+        model.addAttribute(admin);
+        model.addAttribute(studentList);
+        return "admin-student";
+    }
+
+    @RequestMapping(value = "/reset-student")
+    public String modifyAteacher(Model model, @RequestParam String admin_account,@RequestParam String account) {
+        Admin admin=new Admin();
+        admin.setAccount(admin_account);
+        studentService.resetStudent(account);
+        List<Student>  studentList = studentService.getAllStudent();
+        model.addAttribute(admin);
+        model.addAttribute(studentList);
+        return "admin-student";
+    }
 }
