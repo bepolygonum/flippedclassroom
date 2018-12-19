@@ -2,6 +2,7 @@
 <head>
     <meta charset="utf-8">
     <title>教师信息管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/png" href="assets/i/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
     <link rel="stylesheet" href="assets/css/amazeui.min.css" />
@@ -65,6 +66,7 @@
 <body data-type="generalComponents">
 <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right" style="padding-left:1%">
+
     </div>
     <div class="am-topbar-brand">
         <h2>翻转课堂管理系统</h2>
