@@ -13,5 +13,4 @@ public interface TeacherDao {
     void modifyTeacher(int uid,String user_account,String user_name,String user_email);
     void deleteAteacher(String account);
     void resetTeacher(String account);
-
 }
