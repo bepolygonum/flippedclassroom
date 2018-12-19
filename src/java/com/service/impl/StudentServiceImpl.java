@@ -11,10 +11,8 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService {
     @Autowired
     StudentDao studentDao;
-    public Student getStudentbyAccount(String account, String password) {
-        return studentDao.getStudentbyAccount(account,password);
-    }
 
+    @Override
     public List<Student> getAllStudent(){
         return studentDao.getAllStudent();
     }

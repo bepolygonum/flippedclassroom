@@ -24,32 +24,22 @@ public class AdminTeacherController {
     private AdminServiceImpl adminService;
     @Autowired
     private TeacherServiceImpl teacherService;
-    @Autowired
-    private StudentServiceImpl studentService;
 
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public String login(Model model, @RequestParam String user_account, @RequestParam String password, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=gb2312");
         PrintWriter out = response.getWriter();
         Admin admin = adminService.getAdminbyAccount(user_account,password);
-        Teacher teacher = teacherService.getTeacherbyAccount(user_account,password);
-        Student student = studentService.getStudentbyAccount(user_account,password);
         List<Teacher> teacherList =teacherService.getAllTeacher();
         if (admin!=null) {//跳转至管理员管理教师信息的界面
             model.addAttribute(admin);
             model.addAttribute(teacherList);
             return "admin-teacher";
         }
-        else if(teacher!=null){
-            return  "index_teacher";
-        }
-        else if(student!=null){
-            return "index_student";
-        }
         else {
             out.print("<script>alert('用户名或密码错误');history.go(-1);</script>");
         }
-        return "admin-teacher";
+        return "";
     }
     @RequestMapping(value = "/search-teacher", method = RequestMethod.GET)
     public String search(Model model, @RequestParam String info, String admin_account) {
@@ -154,8 +144,6 @@ public class AdminTeacherController {
         model.addAttribute(teacherList);
         return "admin-teacher";
     }
-
-
 
 
 }
