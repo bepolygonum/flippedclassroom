@@ -1133,7 +1133,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 }
 .formSubmit{
     background-color:white;
-    background-image: url("../img/search2.png");
+    background-image: url(../img/search2.png);
     width:16px;
     height:16px;
     border:0;
