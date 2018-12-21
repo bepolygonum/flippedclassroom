@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class AdminServiceImpl implements AdminService {
     @Autowired
     AdminDao adminDao;
-    public Admin getAdminbyAccount(String account, String password) {
-        return adminDao.getAdminbyAccount(account,password);
+    public Admin getAdminByAccount(String account, String password) {
+        return adminDao.getAdminByAccount(account,password);
     }
 }

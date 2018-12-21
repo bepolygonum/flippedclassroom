@@ -6,10 +6,10 @@
     <select id="getAllStudent" resultType="com.entity.Student">
          SELECT * FROM  standard_seminar_system.student;
     </select>
-    <select id="getStudentbyInfo" resultType="com.entity.Student">
+    <select id="getStudentByInfo" resultType="com.entity.Student">
          SELECT * FROM  standard_seminar_system.student where account=#{info} or student_name=#{info};
     </select>
-    <delete id="deleteAstudent" parameterType="String" >
+    <delete id="deleteStudent" parameterType="String" >
         delete from  standard_seminar_system.student where account = #{account};
     </delete>
     <update id="resetStudent">

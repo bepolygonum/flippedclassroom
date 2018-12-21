@@ -1,13 +1,14 @@
+<!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>教师信息管理</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image/png" href="../../assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="../../assets/i/app-icon72x72@2x.png">
-    <link rel="stylesheet" href="../../assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="../../assets/css/admin.css">
-    <link rel="stylesheet" href="../../assets/css/app.css">
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/app.css">
     <script>
         function myReset(account) {
             if (confirm('您确定要重置该账号的密码吗？'))
@@ -75,6 +76,8 @@
         <span class="am-sr-only">导航切换</span>
         <span class="am-icon-bars"></span>
     </button>
+
+
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
@@ -82,8 +85,9 @@
                     <span class="tpl-header-list-user-nick">${admin.getAccount()}</span>
                 </a>
                 <ul class="am-dropdown-content" id="topbat-content">
-                    <li><a href="../../index.index.ftl"><span class="am-icon-power-off"></span> 退出</a></li>
+                    <li><a href="../../index.html"><span class="am-icon-power-off"></span> 退出</a></li>
                 </ul>
+
             </li>
         </ul>
     </div>
@@ -126,11 +130,10 @@
                 <div class="tpl-portlet-input">
                     <div class="portlet-input input-small input-inline">
                         <div class="input-icon right">
-                            <i class="am-icon-search"></i>
                             <form action="/search-teacher" method="get">
                                 <input  type="text" hidden="hidden" name="admin_account" value="${admin.getAccount()}">
                                 <input type="text" class="form-control form-control-solid" name="info" placeholder="搜索...">
-                                <input type="submit" class="form-control-solid" value="搜索">
+                                <input type="submit"   class="formSubmit" style="margin-top: -5rem;margin-left:10rem" value="">
                             </form>
                         </div>
                     </div>
@@ -205,8 +208,8 @@
         </div>
     </div>
 </div>
-<script src="../../assets/js/jquery.min.js"></script>
-<script src="../../assets/js/amazeui.min.js"></script>
-<script src="../../assets/js/app.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>

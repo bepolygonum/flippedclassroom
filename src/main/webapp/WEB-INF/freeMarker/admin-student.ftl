@@ -79,7 +79,7 @@
                     <span class="tpl-header-list-user-nick">${admin.getAccount()}</span>
                 </a>
                 <ul class="am-dropdown-content" id="topbat-content">
-                    <li><a href="../../index.index.ftl"><span class="am-icon-power-off"></span> 退出</a></li>
+                    <li><a href="../../index.html"><span class="am-icon-power-off"></span> 退出</a></li>
                 </ul>
 
             </li>
@@ -126,11 +126,10 @@
                 <div class="tpl-portlet-input">
                     <div class="portlet-input input-small input-inline">
                         <div class="input-icon right">
-                            <i class="am-icon-search"></i>
                             <form action="/search-student" method="get">
                                 <input  type="text" hidden="hidden" name="admin_account" value="${admin.getAccount()}">
                                 <input type="text" class="form-control form-control-solid" name="info" placeholder="搜索...">
-                                <input type="submit" class="form-control-solid" value="搜索">
+                                <input type="submit"   class="formSubmit" style="margin-left: 10rem;margin-top: -5rem" value="">
                             </form>
 
                         </div>

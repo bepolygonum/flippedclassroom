@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -41,9 +42,6 @@
         </ul>
     </div>
 </header>
-
-
-
 
 <div class="tpl-page-container tpl-page-header-fixed">
 
@@ -90,7 +88,7 @@
 
 
                     <div class="am-u-sm-12 am-u-md-9">
-                        <form class="am-form am-form-horizontal" action="/create-a-teacher" method="post" >
+                        <form class="am-form am-form-horizontal" action="/create-a-teacher" method="post" onsubmit="return test();" >
                             <div class="am-form-group">
                                 <input value="${admin.getAccount()}" name="admin_account" hidden="hidden">
                                 <label for="user-account" class="am-u-sm-3 am-form-label">教工号 / ID</label>
@@ -123,7 +121,7 @@
                             </div>
                             <div class="am-form-group">
                                 <div class="am-u-sm-9 am-u-sm-push-3">
-                                    <button type="submit" class="am-btn am-btn-primary" onclick="test()" >确认</button>
+                                    <button type="submit" class="am-btn am-btn-primary" >确认</button>
                                     <a href="/admin-teacher?admin_account=${admin.getAccount()}">
                                         <button type="button" class="am-btn am-btn-primary">取消</button></a>
                                 </div>
@@ -135,18 +133,11 @@
                                 var name = document.getElementById('user-name');
                                 var password = document.getElementById('user-password');
                                 var email = document.getElementById('user-email');
-                                if (account.value == '') {
-                                    alert("account wrong");
+                                if (account.value == ''|name.value == ''|password.value == ''|email.value == '') {
+                                    alert("These items cannot be empty!");
+                                    return false;
                                 }
-                                if (name.value == '') {
-                                    alert("name wrong");
-                                }
-                                if (password.value == '') {
-                                    alert("password wrong");
-                                }
-                                if (email.value == '') {
-                                    alert("email wrong");
-                                }
+                                return true;
                             }
                         </script>
 

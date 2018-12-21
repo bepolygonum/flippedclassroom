@@ -29,7 +29,7 @@ public class AdminStudentController{
 
     @RequestMapping(value = "/search-student", method = RequestMethod.GET)
     public String search(Model model, @RequestParam String info, String admin_account) {
-        List<Student> studentList =studentService.getStudentbyInfo(info);
+        List<Student> studentList =studentService.getStudentByInfo(info);
         Admin admin=new Admin();
         admin.setAccount(admin_account);
         model.addAttribute(admin);
@@ -57,7 +57,7 @@ public class AdminStudentController{
     public String deleteAteacher(Model model, @RequestParam String admin_account,String delid) {
         Admin admin=new Admin();
         admin.setAccount(admin_account);
-        studentService.deleteAstudent(delid);
+        studentService.deleteStudent(delid);
         List<Student>  studentList = studentService.getAllStudent();
         model.addAttribute(admin);
         model.addAttribute(studentList);

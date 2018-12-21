@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AdminDao {
-    Admin getAdminbyAccount(String account, String password);
+    Admin getAdminByAccount(String account, String password);
 }

@@ -1131,6 +1131,16 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     outline: none;
 }
+.formSubmit{
+    background-color:white;
+    background-image: url("../img/search2.png");
+    width:16px;
+    height:16px;
+    border:0;
+    padding:0;
+    margin-left: 11rem;
+    margin-top: -5.5rem;
+}
 
 .form-control {
     height: 30px;

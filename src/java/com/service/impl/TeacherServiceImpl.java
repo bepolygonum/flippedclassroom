@@ -18,8 +18,8 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    public List<Teacher> getTeacherbyInfo(String info) {
-        return teacherDao.getTeacherbyInfo(info);
+    public List<Teacher> getTeacherByInfo(String info) {
+        return teacherDao.getTeacherByInfo(info);
     }
 
     @Override
@@ -31,12 +31,16 @@ public class TeacherServiceImpl implements TeacherService {
     { teacherDao.modifyTeacher(uid,user_account,user_name,user_email);}
 
     @Override
-    public void deleteAteacher(String account){ teacherDao.deleteAteacher(account);}
+    public void deleteTeacherByAccount(String account){ teacherDao.deleteTeacherByAccount(account);}
 
     @Override
-    public void deleteTeacherByAccount(String[] obj){
+    public void deleteTeachersByAccount(String ids){
+        String number="";
+        if(ids!=null)
+            number=ids.substring(0,ids.length()-1);
+        String[] obj = number.split(",");
         for(int i=0;i<obj.length;i++)
-            teacherDao.deleteAteacher(obj[i]);
+            teacherDao.deleteTeacherByAccount(obj[i]);
     }
 
     @Override

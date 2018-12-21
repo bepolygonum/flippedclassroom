@@ -18,17 +18,17 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> getStudentbyInfo(String info) {
-        return studentDao.getStudentbyInfo(info);
+    public List<Student> getStudentByInfo(String info) {
+        return studentDao.getStudentByInfo(info);
     }
 
     @Override
-    public void deleteAstudent(String account){ studentDao.deleteAstudent(account);}
+    public void deleteStudent(String account){ studentDao.deleteStudent(account);}
 
     @Override
     public void deleteStudentByAccount(String[] obj){
         for(int i=0;i<obj.length;i++)
-            studentDao.deleteAstudent(obj[i]);
+            studentDao.deleteStudent(obj[i]);
     }
     @Override
     public void resetStudent(String account)

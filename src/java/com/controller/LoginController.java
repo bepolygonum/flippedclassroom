@@ -27,7 +27,7 @@ public class LoginController {
     public String login(Model model, @RequestParam String user_account, @RequestParam String password, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=gb2312");
         PrintWriter out = response.getWriter();
-        Admin admin = adminService.getAdminbyAccount(user_account,password);
+        Admin admin = adminService.getAdminByAccount(user_account,password);
         List<Teacher> teacherList =teacherService.getAllTeacher();
         if (admin!=null) {//跳转至管理员管理教师信息的界面
             model.addAttribute(admin);
