@@ -104,6 +104,13 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+        <!-- MySql 5.5 Connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>6.0.6</version>
+            <scope>runtime</scope>
+        </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
