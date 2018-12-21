@@ -2,7 +2,6 @@ package com.controller;
 
 import com.entity.Admin;
 import com.entity.Teacher;
-import com.service.impl.AdminServiceImpl;
 import com.service.impl.TeacherServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -98,7 +97,7 @@ public class AdminTeacherController {
         model.addAttribute(admin);
         model.addAttribute("tid",tid);
         model.addAttribute(teacher);
-        return "ModifyTeacher";
+        return "modify-teacher";
     }
 
     @RequestMapping(value = "/modify-a-teacher",method = RequestMethod.POST)

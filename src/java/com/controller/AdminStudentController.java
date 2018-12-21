@@ -75,7 +75,7 @@ public class AdminStudentController{
         model.addAttribute(admin);
         model.addAttribute("tid",tid);
         model.addAttribute(student);
-        return "ModifyStudent";
+        return "modify-student";
     }
 
     @RequestMapping(value = "/modify-a-student",method = RequestMethod.POST)

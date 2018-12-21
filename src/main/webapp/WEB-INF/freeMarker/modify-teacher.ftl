@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>修改学生信息</title>
-    <link rel="icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <title>修改教师信息</title>
+    <link rel="icon" type="image/png" href="../../assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../../assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="assets/css/admin.css">
-    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="../../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+    <link rel="stylesheet" href="../../assets/css/app.css">
     <script>
     </script>
 </head>
@@ -37,14 +37,22 @@
                     <span class="tpl-header-list-user-nick">${admin.getAccount()}</span>
                 </a>
                 <ul class="am-dropdown-content" id="topbat-content">
-                    <li><a href="../../index.html"><span class="am-icon-power-off"></span> 退出</a></li>
+                    <li><a href="../../index.index.ftl"><span class="am-icon-power-off"></span> 退出</a></li>
                 </ul>
 
             </li>
         </ul>
     </div>
 </header>
+
+
+
+
+
+
+
 <div class="tpl-page-container tpl-page-header-fixed">
+
 
 
     <div class="tpl-left-nav tpl-left-nav-hover" style="margin-top:1%">
@@ -80,8 +88,8 @@
     <div class="tpl-content-wrapper">
         <div class="tpl-portlet-components">
             <div class="portlet-title">
-                <div class="caption bold">
-                    创建学生用户
+                <div class="caption  bold">
+                    修改教师用户
                 </div>
             </div>
             <div class="tpl-block ">
@@ -90,25 +98,25 @@
 
 
                     <div class="am-u-sm-12 am-u-md-9">
-                        <form class="am-form am-form-horizontal" action="/modify-a-student?tid=${tid}" method="post" onsubmit="return test()">
+                        <form class="am-form am-form-horizontal" action="/modify-a-teacher?tid=${tid}" method="post" onsubmit="return test()">
                             <div class="am-form-group">
                                 <input value="${admin.getAccount()}" name="admin_account" hidden="hidden">
-                                <label for="user-account" class="am-u-sm-3 am-form-label">学号 / ID</label>
+                                <label for="user-accoun" class="am-u-sm-3 am-form-label">教工号 / Account</label>
                                 <div class="am-u-sm-9">
-                                    <input type="text" id="user-account" value="${student.getAccount()}" name="user_account">
+                                    <input type="text" id="user-account" value="${teacher.getAccount()}" name="user_account" >
                                 </div>
                             </div>
                             <div class="am-form-group">
                                 <label for="user-name" class="am-u-sm-3 am-form-label">姓名 / Name</label>
                                 <div class="am-u-sm-9">
-                                    <input type="text" id="user-name" value="${student.getStudent_name()}" name="user_name">
+                                    <input type="text" id="user-name" value="${teacher.getTeacher_name()}" name="user_name" >
                                 </div>
                             </div>
 
                             <div class="am-form-group">
                                 <label for="user-email" class="am-u-sm-3 am-form-label">电子邮件 / Email</label>
                                 <div class="am-u-sm-9">
-                                    <input type="email" id="user-email" value="${student.getEmail()}" name="user_email">
+                                    <input type="email" id="user-email" value="${teacher.getEmail()}" name="user_email">
                                 </div>
                             </div>
 
@@ -118,9 +126,9 @@
                             </div>
                             <div class="am-form-group">
                                 <div class="am-u-sm-9 am-u-sm-push-3">
-                                    <button type="submit" class="am-btn am-btn-primary">确认</button>
-                                    <a href="/admin-student?admin_account=${admin.getAccount()}">
-                                    <a href="/admin-student?admin_account=${admin.getAccount()}"><button type="button" class="am-btn am-btn-primary">取消</button></a>
+                                    <button type="submit" class="am-btn am-btn-primary"  >确认</button>
+                                    <a href="/admin-teacher?admin_account=${admin.getAccount()}">
+                                    <a href="/admin-teacher?admin_account=${admin.getAccount()}"><button type="button" class="am-btn am-btn-primary">取消</button></a>
                                 </div>
                             </div>
                         </form>
@@ -143,9 +151,9 @@
         </div>
     </div>
 </div>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/amazeui.min.js"></script>
+<script src="../../assets/js/app.js"></script>
 </body>
 
 </html>

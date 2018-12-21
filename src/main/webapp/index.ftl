@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible">
     <title>翻转课堂管理系统</title>
-    <link rel="icon" type="image/png" href="assets/i/icon.png">
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" />
     <link rel="stylesheet" type="text/css" href="assets/css/amazeui.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/admin.css">

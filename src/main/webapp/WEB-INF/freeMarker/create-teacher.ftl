@@ -3,12 +3,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>创建教师用户</title>
-    <link rel="icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="image/png" href="../../assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../../assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="assets/css/admin.css">
-    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="../../assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+    <link rel="stylesheet" href="../../assets/css/app.css">
     <script>
     </script>
 </head>
@@ -34,7 +34,7 @@
                     <span class="tpl-header-list-user-nick">${admin.getAccount()}</span>
                 </a>
                 <ul class="am-dropdown-content" id="topbat-content">
-                    <li><a href="../../index.html"><span class="am-icon-power-off"></span> 退出</a></li>
+                    <li><a href="../../index.index.ftl"><span class="am-icon-power-off"></span> 退出</a></li>
                 </ul>
 
             </li>
@@ -162,9 +162,9 @@
     </div> -->
 </div>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/amazeui.min.js"></script>
+<script src="../../assets/js/app.js"></script>
 </body>
 
 </html>
