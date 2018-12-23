@@ -1,11 +1,15 @@
 package com.entity;
 
+/**
+ * @author DELL
+ */
 public class Teacher {
     private int id;
     private String account;
     private String password;
-    private  String teacher_name;
+    private  String teacherName;
     private  String email;
+    private boolean isActive;
 
     public int getId() {
         return id;
@@ -31,12 +35,12 @@ public class Teacher {
         this.password = password;
     }
 
-    public String getTeacher_name() {
-        return teacher_name;
+    public String getTeacherName() {
+        return teacherName;
     }
 
-    public void setTeacher_name(String teacher_name) {
-        this.teacher_name = teacher_name;
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
     }
 
     public String getEmail() {
@@ -47,4 +51,11 @@ public class Teacher {
         this.email = email;
     }
 
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
 }

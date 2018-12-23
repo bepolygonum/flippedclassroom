@@ -1,11 +1,15 @@
 package com.entity;
 
+/**
+ * @author DELL
+ */
 public class Student {
     private int id;
     private String account;
     private String password;
-    private  String student_name;
+    private  String studentName;
     private  String email;
+    private boolean isActive;
 
     public int getId() {
         return id;
@@ -31,12 +35,12 @@ public class Student {
         this.password = password;
     }
 
-    public String getStudent_name() {
-        return student_name;
+    public String getStudentName() {
+        return studentName;
     }
 
-    public void setStudent_name(String student_name) {
-        this.student_name = student_name;
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
     public String getEmail() {
@@ -47,13 +51,11 @@ public class Student {
         this.email = email;
     }
 
-    public boolean isIs_active() {
-        return is_active;
+    public boolean isActive() {
+        return isActive;
     }
 
-    public void setIs_active(boolean is_active) {
-        this.is_active = is_active;
+    public void setActive(boolean active) {
+        isActive = active;
     }
-
-    private boolean is_active;
 }

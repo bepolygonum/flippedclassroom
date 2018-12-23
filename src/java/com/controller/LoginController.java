@@ -2,8 +2,8 @@ package com.controller;
 
 import com.entity.Admin;
 import com.entity.Teacher;
-import com.service.impl.AdminServiceImpl;
-import com.service.impl.TeacherServiceImpl;
+import com.service.AdminServiceImpl;
+import com.service.TeacherServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+/**
+ * @author DELL
+ */
 @Controller
 public class LoginController {
     @Autowired
@@ -24,12 +27,13 @@ public class LoginController {
     private TeacherServiceImpl teacherService;
 
     @RequestMapping(value = "/index", method = RequestMethod.POST)
-    public String login(Model model, @RequestParam String user_account, @RequestParam String password, HttpServletResponse response) throws IOException {
+    public String login(Model model, @RequestParam String userAccount, @RequestParam String password, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=gb2312");
         PrintWriter out = response.getWriter();
-        Admin admin = adminService.getAdminByAccount(user_account,password);
+        Admin admin = adminService.getAdminByAccount(userAccount,password);
         List<Teacher> teacherList =teacherService.getAllTeacher();
-        if (admin!=null) {//跳转至管理员管理教师信息的界面
+        if (admin!=null) {
+            //跳转至管理员管理教师信息的界面
             model.addAttribute(admin);
             model.addAttribute(teacherList);
             return "admin-teacher";

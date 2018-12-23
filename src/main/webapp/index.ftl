@@ -36,7 +36,7 @@
         <form class="am-form" action="/index" method="post">
             <fieldset>
                 <div class="am-form-group">
-                    <input type="text" name="user_account" placeholder="输入学工号/教工号">
+                    <input type="text" name="userAccount" placeholder="输入学工号/教工号">
                 </div>
                 <div class="am-form-group">
                     <input type="password" name="password" placeholder="密码">

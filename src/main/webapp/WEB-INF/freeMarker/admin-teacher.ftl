@@ -12,7 +12,7 @@
     <script>
         function myReset(account) {
             if (confirm('您确定要重置该账号的密码吗？'))
-                window.location.href="/reset-teacher?admin_account=${admin.getAccount()}&account="+account;
+                window.location.href="/reset-teacher?adminAccount=${admin.getAccount()}&account="+account;
         }
 
         function checkAll() {
@@ -46,20 +46,20 @@
                 return false;
             } else {
                 if (confirm("Are you Sure To Delete？")) {
-                    window.location.href = "/delete-teacher?admin_account=${admin.getAccount()}&delid=" + check_val;
+                    window.location.href = "/delete-teacher?adminAccount=${admin.getAccount()}&delid=" + check_val;
                 }
             }
         }
 
         function confirmdel(numstring) {
             if (confirm("Are you Sure To Delete？")) {
-                window.location.href = "/delete-a-teacher?admin_account=${admin.getAccount()}&delid=" + numstring;
+                window.location.href = "/delete-a-teacher?adminAccount=${admin.getAccount()}&delid=" + numstring;
             }
         }
 
         function modify(account,id)
         {
-            window.location.href="/modify-teacher?admin_account=${admin.getAccount()}&tid="+id;
+            window.location.href="/modify-teacher?adminAccount=${admin.getAccount()}&tid="+id;
         }
     </script>
 </head>
@@ -85,7 +85,7 @@
                     <span class="tpl-header-list-user-nick">${admin.getAccount()}</span>
                 </a>
                 <ul class="am-dropdown-content" id="topbat-content">
-                    <li><a href="../../index.html"><span class="am-icon-power-off"></span> 退出</a></li>
+                    <li><a href="../../index.ftl"><span class="am-icon-power-off"></span> 退出</a></li>
                 </ul>
 
             </li>
@@ -107,11 +107,11 @@
                     <ul class="tpl-left-nav-sub-menu" style="display:block">
                         <li>
                             <!-- 打开状态 a 标签添加 active 即可   -->
-                            <a href="/admin-teacher?admin_account=${admin.getAccount()}" class="active">
+                            <a href="/admin-teacher?adminAccount=${admin.getAccount()}" class="active">
                                 <i class="am-icon-angle-right"></i>
                                 <span>管理教师信息</span>
                             </a>
-                            <a href="/admin-student?admin_account=${admin.getAccount()}">
+                            <a href="/admin-student?adminAccount=${admin.getAccount()}">
                                 <i class="am-icon-angle-right"></i>
                                 <span>管理学生信息</span>
                             </a>
@@ -131,7 +131,7 @@
                     <div class="portlet-input input-small input-inline">
                         <div class="input-icon right">
                             <form action="/search-teacher" method="get">
-                                <input  type="text" hidden="hidden" name="admin_account" value="${admin.getAccount()}">
+                                <input  type="text" hidden="hidden" name="adminAccount" value="${admin.getAccount()}">
                                 <input type="text" class="form-control form-control-solid" name="info" placeholder="搜索...">
                                 <input type="submit"   class="formSubmit" style="margin-top: -5rem;margin-left:10rem" value="">
                             </form>
@@ -145,7 +145,7 @@
                     <div class="am-u-sm-12 am-u-md-6">
                         <div class="am-btn-toolbar">
                             <div class="am-btn-group am-btn-group-xs">
-                                <a type="button" class="am-btn am-btn-default am-btn-success" href="/create-teacher?admin_account=${admin.getAccount()}"><span class="am-icon-plus"></span> 新增</a>
+                                <a type="button" class="am-btn am-btn-default am-btn-success" href="/create-teacher?adminAccount=${admin.getAccount()}"><span class="am-icon-plus"></span> 新增</a>
                                 <button type="button" class="am-btn am-btn-default am-btn-danger" onclick="checkdel()"><span class="am-icon-trash-o" ></span> 删除</button>
                             </div>
                         </div>
@@ -170,12 +170,12 @@
                                     <tr>
                                         <td class="table-check"><input type="checkbox" class="tpl-table-fz-check" name="check" value="${item.getAccount()}"></td>
                                         <td class="table-title" >${item.getAccount()?if_exists}</td>
-                                        <td class="table-author am-hide-sm-only"><a href="#">${item.getTeacher_name()?if_exists}</a></td>
+                                        <td class="table-author am-hide-sm-only"><a href="#">${item.getTeacherName()?if_exists}</a></td>
                                         <td class="table-date am-hide-sm-only">${item.getEmail()?if_exists}</td>
                                         <td>
                                             <div class="am-btn-toolbar">
                                                 <div class="am-btn-group am-btn-group-xs">
-                                                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" ><a href="/modify-teacher?admin_account=${admin.getAccount()}&tid=${item.getId()}&account=${item.getAccount()}&name=${item.getTeacher_name()}&email=${item.getEmail()}">编辑</a></button>
+                                                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" ><a href="/modify-teacher?adminAccount=${admin.getAccount()}&tid=${item.getId()}&account=${item.getAccount()}&name=${item.getTeacherName()}&email=${item.getEmail()}">编辑</a></button>
                                                     <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only" type="button" onclick="myReset('${item.getAccount()}')"> 重置</button>
                                                     <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" type="button" onclick="confirmdel('${item.getAccount()?if_exists}')"> 删除</button>
                                                 </div>

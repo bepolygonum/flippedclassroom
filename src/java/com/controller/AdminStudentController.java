@@ -2,7 +2,7 @@ package com.controller;
 
 import com.entity.Admin;
 import com.entity.Student;
-import com.service.impl.StudentServiceImpl;
+import com.service.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,38 +12,41 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+/**
+ * @author DELL
+ */
 @Controller
 public class AdminStudentController{
     @Autowired
     private StudentServiceImpl studentService;
 
     @RequestMapping(value = "/admin-student",method = RequestMethod.GET)
-    public String adminstudent(Model model, @RequestParam String admin_account) {
+    public String adminstudent(Model model, @RequestParam String adminAccount) {
         List<Student>  studentList = studentService.getAllStudent();
         Admin admin=new Admin();
-        admin.setAccount(admin_account);
+        admin.setAccount(adminAccount);
         model.addAttribute(admin);
         model.addAttribute(studentList);
         return "admin-student";
     }
 
     @RequestMapping(value = "/search-student", method = RequestMethod.GET)
-    public String search(Model model, @RequestParam String info, String admin_account) {
+    public String search(Model model, @RequestParam String info, String adminAccount) {
         List<Student> studentList =studentService.getStudentByInfo(info);
         Admin admin=new Admin();
-        admin.setAccount(admin_account);
+        admin.setAccount(adminAccount);
         model.addAttribute(admin);
         model.addAttribute(studentList);
         return "admin-student";
     }
 
     @RequestMapping(value = "/delete-student")
-    public String deleteteacher(Model model, @RequestParam String admin_account,String delid) {
+    public String deleteteacher(Model model, @RequestParam String adminAccount,String delid) {
         Admin admin=new Admin();
-        admin.setAccount(admin_account);
+        admin.setAccount(adminAccount);
         String number="";
         if(delid!=null)
-            number=delid.substring(0,delid.length()-1);
+        {number=delid.substring(0,delid.length()-1);}
         String[] obj = number.split(",");
         studentService.deleteStudentByAccount(obj);
         List<Student>  studentList = studentService.getAllStudent();
@@ -54,9 +57,9 @@ public class AdminStudentController{
     }
 
     @RequestMapping(value = "/delete-a-student")
-    public String deleteAteacher(Model model, @RequestParam String admin_account,String delid) {
+    public String deleteAteacher(Model model, @RequestParam String adminAccount,String delid) {
         Admin admin=new Admin();
-        admin.setAccount(admin_account);
+        admin.setAccount(adminAccount);
         studentService.deleteStudent(delid);
         List<Student>  studentList = studentService.getAllStudent();
         model.addAttribute(admin);
@@ -65,12 +68,12 @@ public class AdminStudentController{
     }
 
     @RequestMapping(value = "/modify-student")
-    public String modifyTeacher(Model model, @RequestParam String admin_account,@RequestParam String tid,@RequestParam String account,@RequestParam String name,@RequestParam String email) {
+    public String modifyTeacher(Model model, @RequestParam String adminAccount,@RequestParam String tid,@RequestParam String account,@RequestParam String name,@RequestParam String email) {
         Admin admin=new Admin();
         Student student=new Student();
-        admin.setAccount(admin_account);
+        admin.setAccount(adminAccount);
         student.setAccount(account);
-        student.setStudent_name(name);
+        student.setStudentName(name);
         student.setEmail(email);
         model.addAttribute(admin);
         model.addAttribute("tid",tid);
@@ -79,11 +82,11 @@ public class AdminStudentController{
     }
 
     @RequestMapping(value = "/modify-a-student",method = RequestMethod.POST)
-    public String modifyAteacher(Model model, @RequestParam String admin_account,@RequestParam String tid,@RequestParam String user_account,@RequestParam String user_name,@RequestParam String user_email) {
+    public String modifyAteacher(Model model, @RequestParam String adminAccount,@RequestParam String tid,@RequestParam String userAccount,@RequestParam String userName,@RequestParam String userEmail) {
         Admin admin=new Admin();
-        admin.setAccount(admin_account);
+        admin.setAccount(adminAccount);
         int uid=Integer.parseInt(tid);
-        studentService.modifyStudent(uid,user_account,user_name,user_email);
+        studentService.modifyStudent(uid,userAccount,userName,userEmail);
         List<Student>  studentList = studentService.getAllStudent();
         model.addAttribute(admin);
         model.addAttribute(studentList);
@@ -91,9 +94,9 @@ public class AdminStudentController{
     }
 
     @RequestMapping(value = "/reset-student")
-    public String modifyAteacher(Model model, @RequestParam String admin_account,@RequestParam String account) {
+    public String modifyAteacher(Model model, @RequestParam String adminAccount,@RequestParam String account) {
         Admin admin=new Admin();
-        admin.setAccount(admin_account);
+        admin.setAccount(adminAccount);
         studentService.resetStudent(account);
         List<Student>  studentList = studentService.getAllStudent();
         model.addAttribute(admin);

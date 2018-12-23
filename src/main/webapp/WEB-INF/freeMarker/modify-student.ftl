@@ -61,11 +61,11 @@
                     <ul class="tpl-left-nav-sub-menu" style="display:block">
                         <li>
                             <!-- 打开状态 a 标签添加 active 即可   -->
-                            <a href="/admin-teacher?admin_account=${admin.getAccount()}" class="active">
+                            <a href="/admin-teacher?adminAccount=${admin.getAccount()}" class="active">
                                 <i class="am-icon-angle-right"></i>
                                 <span>管理教师信息</span>
                             </a>
-                            <a href="/admin-student?admin_account=${admin.getAccount()}">
+                            <a href="/admin-student?adminAccount=${admin.getAccount()}">
                                 <i class="am-icon-angle-right"></i>
                                 <span>管理学生信息</span>
                             </a>
@@ -92,23 +92,23 @@
                     <div class="am-u-sm-12 am-u-md-9">
                         <form class="am-form am-form-horizontal" action="/modify-a-student?tid=${tid}" method="post" onsubmit="return test()">
                             <div class="am-form-group">
-                                <input value="${admin.getAccount()}" name="admin_account" hidden="hidden">
+                                <input value="${admin.getAccount()}" name="adminAccount" hidden="hidden">
                                 <label for="user-account" class="am-u-sm-3 am-form-label">学号 / ID</label>
                                 <div class="am-u-sm-9">
-                                    <input type="text" id="user-account" value="${student.getAccount()}" name="user_account">
+                                    <input type="text" id="user-account" value="${student.getAccount()}" name="userAccount">
                                 </div>
                             </div>
                             <div class="am-form-group">
                                 <label for="user-name" class="am-u-sm-3 am-form-label">姓名 / Name</label>
                                 <div class="am-u-sm-9">
-                                    <input type="text" id="user-name" value="${student.getStudent_name()}" name="user_name">
+                                    <input type="text" id="user-name" value="${student.getStudentName()}" name="userName">
                                 </div>
                             </div>
 
                             <div class="am-form-group">
                                 <label for="user-email" class="am-u-sm-3 am-form-label">电子邮件 / Email</label>
                                 <div class="am-u-sm-9">
-                                    <input type="email" id="user-email" value="${student.getEmail()}" name="user_email">
+                                    <input type="email" id="user-email" value="${student.getEmail()}" name="userEmail">
                                 </div>
                             </div>
 
@@ -119,8 +119,8 @@
                             <div class="am-form-group">
                                 <div class="am-u-sm-9 am-u-sm-push-3">
                                     <button type="submit" class="am-btn am-btn-primary">确认</button>
-                                    <a href="/admin-student?admin_account=${admin.getAccount()}">
-                                    <a href="/admin-student?admin_account=${admin.getAccount()}"><button type="button" class="am-btn am-btn-primary">取消</button></a>
+                                    <a href="/admin-student?adminAccount=${admin.getAccount()}">
+                                    <a href="/admin-student?adminAccount=${admin.getAccount()}"><button type="button" class="am-btn am-btn-primary">取消</button></a>
                                 </div>
                             </div>
                         </form>

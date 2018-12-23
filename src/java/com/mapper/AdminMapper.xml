@@ -3,7 +3,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.AdminDao">
     <!-- 目的：为dao接口方法提供sql语句配置 -->
-    <select id="getAdminByAccount" resultType="com.entity.Admin">
+    <resultMap type="com.entity.Admin" id="adminResultMap">
+        <!-- 定义主键 ,非常重要。如果是多个字段,则定义多个id -->
+        <!-- property：主键在pojo中的属性名 -->
+        <!-- column：主键在数据库中的列名 -->
+        <id property="id" column="id" />
+
+        <!-- 定义普通属性 -->
+        <result property="account" column="account" />
+        <result property="password" column="password" />
+
+    </resultMap>
+    <select id="getAdminByAccount" resultMap="adminResultMap">
         SELECT * FROM  standard_seminar_system.admin WHERE account = #{0} and password=#{1}
     </select>
 </mapper>

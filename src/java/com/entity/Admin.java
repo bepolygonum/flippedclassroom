@@ -1,5 +1,8 @@
 package com.entity;
 
+/**
+ * @author DELL
+ */
 public class Admin{
     private int id;
     private String account;

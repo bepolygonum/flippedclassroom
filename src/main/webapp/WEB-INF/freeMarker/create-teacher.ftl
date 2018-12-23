@@ -59,11 +59,11 @@
                     <ul class="tpl-left-nav-sub-menu" style="display:block">
                         <li>
                             <!-- 打开状态 a 标签添加 active 即可   -->
-                            <a href="/admin-teacher?admin_account=${admin.getAccount()}" class="active">
+                            <a href="/admin-teacher?adminAccount=${admin.getAccount()}" class="active">
                                 <i class="am-icon-angle-right"></i>
                                 <span>管理教师信息</span>
                             </a>
-                            <a href="/admin-student?admin_account=${admin.getAccount()}">
+                            <a href="/admin-student?adminAccount=${admin.getAccount()}">
                                 <i class="am-icon-angle-right"></i>
                                 <span>管理学生信息</span>
                             </a>
@@ -90,29 +90,29 @@
                     <div class="am-u-sm-12 am-u-md-9">
                         <form class="am-form am-form-horizontal" action="/create-a-teacher" method="post" onsubmit="return test();" >
                             <div class="am-form-group">
-                                <input value="${admin.getAccount()}" name="admin_account" hidden="hidden">
+                                <input value="${admin.getAccount()}" name="adminAccount" hidden="hidden">
                                 <label for="user-account" class="am-u-sm-3 am-form-label">教工号 / ID</label>
                                 <div class="am-u-sm-9">
-                                    <input type="text" id="user-account" placeholder="教工号" name="user_account">
+                                    <input type="text" id="user-account" placeholder="教工号" name="userAccount">
                                 </div>
                             </div>
                             <div class="am-form-group">
                                 <label for="user-name" class="am-u-sm-3 am-form-label">姓名 / Name</label>
                                 <div class="am-u-sm-9">
-                                    <input type="text" id="user-name" placeholder="教师姓名" name="user_name">
+                                    <input type="text" id="user-name" placeholder="教师姓名" name="userName">
                                 </div>
                             </div>
                             <div class="am-form-group">
                                 <label for="user-password" class="am-u-sm-3 am-form-label">密码 / Password</label>
                                 <div class="am-u-sm-9">
-                                    <input type="password" id="user-password" placeholder="教师密码" name="user_password">
+                                    <input type="password" id="user-password" placeholder="教师密码" name="userPassword">
                                 </div>
                             </div>
 
                             <div class="am-form-group">
                                 <label for="user-email" class="am-u-sm-3 am-form-label">电子邮件 / Email</label>
                                 <div class="am-u-sm-9">
-                                    <input type="email" id="user-email" placeholder="电子邮件" name="user_email">
+                                    <input type="email" id="user-email" placeholder="电子邮件" name="userEmail">
                                 </div>
                             </div>
                             <div class="am-form-group">
@@ -122,7 +122,7 @@
                             <div class="am-form-group">
                                 <div class="am-u-sm-9 am-u-sm-push-3">
                                     <button type="submit" class="am-btn am-btn-primary" >确认</button>
-                                    <a href="/admin-teacher?admin_account=${admin.getAccount()}">
+                                    <a href="/admin-teacher?adminAccount=${admin.getAccount()}">
                                         <button type="button" class="am-btn am-btn-primary">取消</button></a>
                                 </div>
                             </div>

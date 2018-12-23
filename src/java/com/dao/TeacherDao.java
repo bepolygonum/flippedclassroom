@@ -5,12 +5,51 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author DELL
+ */
 @Repository
 public interface TeacherDao {
+    /**
+     * getAllTeacher
+     * @return
+     */
     List<Teacher> getAllTeacher();
+
+    /**
+     * getTeacherByInfo
+     * @param info
+     * @return
+     */
     List<Teacher> getTeacherByInfo(String info);
-    void createTeacher(String user_account,String user_name,String user_password,String user_email);
-    void modifyTeacher(int uid,String user_account,String user_name,String user_email);
+
+    /**
+     * createTeacher
+     * @param userAccount
+     * @param userName
+     * @param userPassword
+     * @param userEmail
+     */
+    void createTeacher(String userAccount,String userName,String userPassword,String userEmail);
+
+    /**
+     * modifyTeacher
+     * @param uid
+     * @param userAccount
+     * @param userName
+     * @param userEmail
+     */
+    void modifyTeacher(int uid,String userAccount,String userName,String userEmail);
+
+    /**
+     * deleteTeacherByAccount
+     * @param account
+     */
     void deleteTeacherByAccount(String account);
+
+    /**
+     * resetTeacher
+     * @param account
+     */
     void resetTeacher(String account);
 }
